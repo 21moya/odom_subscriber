@@ -15,7 +15,7 @@ class Subscriber(Node):
         self.subscription
 
     def listener_callback(self, msg):
-        self.get_logger().info('I heeard: "%s"' % msg.data)
+       self.get_logger().info(f"I heard x: {msg.pose.pose.position.x}, y: {msg.pose.pose.position.y}")
         with open("odom.txt", "a") as f:
             f.write(f"{msg.pose.pose.position.x} {msg.pose.pose.position.y}")
         f.close()
